@@ -8,11 +8,16 @@
  */
 
 let hobbies = ['guitar', 'video games', 'netflix', 'biking'];
+let hobbyList = document.querySelector('#hobby-list')
 
 for (let fun of hobbies) {
     console.log(fun);
+    hobbyList.innerHTML += '<li>' + fun + '</li>';
 }
 console.log(hobbies.length);
+
+
+
 
 // Example output
 // 1. swimming
@@ -33,12 +38,14 @@ console.log(hobbies.length);
 
 let colors = ['blue', 'teal', 'red', 'green', 'teal'];
 let tealCount = 0;
-
+let colorList = document.querySelector('#color-list');
 for (let color of colors) {
+    colorList.innerHTML += '<li>' + color + '</li>';
     if (color == 'teal') {
         tealCount++;
     }
 }
+colorList.innerHTML += '<p> Teal was found ' + tealCount + ' times!';
 console.log(colors);
 console.log(`Teal was found ${tealCount} times`);
 
