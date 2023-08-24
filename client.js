@@ -39,7 +39,8 @@ for (let color of colors) {
         tealCount++;
     }
 }
-console.log('Times teal was found:', tealCount);
+console.log(colors);
+console.log(`Teal was found ${tealCount} times`);
 
 
 // Example output
@@ -116,7 +117,7 @@ console.log(toggled);
  *    NOTE: You should not need a second array here.
  * 3. Output the array
  */
-
+// Sam helped point us in the right direction for this one
 let zeroNumbers = [3, 5, 0, 2, 0, 0]
 
 for (i = (zeroNumbers.length - 1); i>=0; i--) {
@@ -145,14 +146,28 @@ console.log(zeroNumbers);
  * 3. Output the array and its greatest position distance
  */
 
-let largeNumbers = [2, 4, 6, 6, 3, 1, 2]; //answer should be 6
 
-for (let p = 0; p > largeNumbers.length; p++) {
-    if (largeNumbers[p] = largeNumbers[(p+1)]) {
-        
+// This problem is a little over our heads for now!
+// Solution provided by Chris Black
+
+let largeArray = [0, 2, 2, 7, 4, 1, 7, 8];
+let distance = 0;
+let numberForDistance;
+
+for (let i = 0; i < largeArray.length; i++) {
+    let currentNumber = largeArray[i];
+    //indexOf will find the first occurrence the current number AFTER the first occurrence
+    let nextIndex = largeArray.indexOf(currentNumber, i + 1);
+    console.log('current number', currentNumber);
+    console.log('nextIndex', nextIndex);
+    // so if nextIndex actually happens, and nextIndex is actually separate from the first index
+    // Then the distance is whatever that value is plus 1. Distance will overwrite shortest distance
+    // with longest distance.
+    if (nextIndex > 0 && nextIndex - i > distance) {
+        numberForDistance = currentNumber;
+        distance = nextIndex + 1;
     }
-}
-
+ }
 // Example output
 // 5, 1, 8, 2, 9, 1, 4, 5, 0
 // Greatest Position Distance: 7
